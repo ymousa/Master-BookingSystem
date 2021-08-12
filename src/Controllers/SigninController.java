@@ -40,7 +40,7 @@ public class SigninController {
     @FXML
     void SignInClick(ActionEvent event) throws IOException {
         UserHelper myUserHelper= new UserHelper();
-        myUserHelper.register(vorname.getText()+" "+nachname.getText(), username.getText(), newpass.getText());
+        myUserHelper.register(String.format("%C.%s", vorname.getText().charAt(0),nachname.getText()), username.getText(), newpass.getText());
         switchScene(event, "../FXML/Login.fxml","Stylesheets/Login.css");
     }
 

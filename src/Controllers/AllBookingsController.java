@@ -1,5 +1,7 @@
 package Controllers;
 
+import Datenobjekte.Booking;
+import Helpers.BookingHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +33,7 @@ public class AllBookingsController {
     @FXML
     private TextArea notizen;
 
+
     public void switchScene(ActionEvent event, String fxml, String css) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
         Scene scene = new Scene(root);
@@ -41,9 +44,13 @@ public class AllBookingsController {
         window.show();
     }
 
-    @FXML
-    void updateResClicked(ActionEvent event) {
 
+    @FXML
+    void updateResClicked(ActionEvent event) throws IOException {
+        TextArea[] allTextAreas= new TextArea[]{nr, name, datum, veranstaltung, dauer, notizen};           //wrap all TextAreas to an Array
+        BookingHelper myBookingHelper= new BookingHelper();
+
+        myBookingHelper.showBookings(allTextAreas);
     }
 
     @FXML
@@ -53,12 +60,12 @@ public class AllBookingsController {
 
     @FXML
     void cancelMenuClicked(ActionEvent event) throws IOException{
-        switchScene(event, "../FXML/Book.fxml","Stylesheets/Book.css"  );
+        switchScene(event, "../FXML/CancelBooking.fxml","Stylesheets/CancelBooking.css"  );
     }
 
     @FXML
     void logoutClicked(ActionEvent event) throws IOException{
-        switchScene(event, "../FXML/Book.fxml","Stylesheets/Book.css"  );
+        switchScene(event, "../FXML/Signin.fxml","Stylesheets/Signin.css"  );
     }
 
 
