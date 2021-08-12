@@ -1,5 +1,6 @@
 package Controllers;
 
+import Datenobjekte.Booking;
 import Helpers.BookingHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,12 +44,22 @@ public class BookController {
         window.show();
     }
 
+    void clearAllTextField(){
+        raumNr.clear();
+        datum.setValue(null);
+        veranstaltung.clear();
+        uhrzeit.clear();
+        dauer.clear();
+        notizen.clear();
+    }
 
     @FXML
     void bookClicked(ActionEvent event) throws IOException {
         BookingHelper myBookingHelper= new BookingHelper();
-        myBookingHelper.insertBooking(raumNr.getText(), datum.getValue(), veranstaltung.getText(),
-                                        uhrzeit.getText(), dauer.getText(), notizen.getText());
+        Booking newBooking= new Booking("000","temp",raumNr.getText(), datum.getValue(),
+                        veranstaltung.getText(), uhrzeit.getText(), dauer.getText(), notizen.getText());
+        myBookingHelper.insertBooking(newBooking);                                                         //newBooking is not completely
+        clearAllTextField();
     }
 
     @FXML

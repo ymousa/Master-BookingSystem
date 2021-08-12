@@ -78,6 +78,11 @@ public class Booking {
         return sUser;
     }
 
+    public void setiBookingNr(int iBookingNr) {
+        this.iBookingNr = iBookingNr;
+    }
 
-
+    public void setsUser(String sUser) {
+        this.sUser = sUser;
+    }
 }

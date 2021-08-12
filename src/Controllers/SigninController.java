@@ -45,8 +45,8 @@ public class SigninController {
     }
 
     @FXML
-    void goBack(ActionEvent event) {
-
+    void goBack(ActionEvent event) throws IOException {
+        switchScene(event, "../FXML/Login.fxml","Stylesheets/Login.css");
     }
 
 
