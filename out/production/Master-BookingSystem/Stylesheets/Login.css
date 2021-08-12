@@ -1,0 +1,22 @@
+.root{
+    -fx-background-color: #282828;
+}
+
+.label{
+    -fx-text-fill: white;
+}
+
+.button{
+    -fx-background-color: #D4286A;
+    -fx-color: #D4286A;
+}
+
+#username{
+    -fx-prompt-text-fill: white;
+    -fx-control-inner-background: #383838;
+}
+
+#password{
+    -fx-prompt-text-fill: white;
+    -fx-control-inner-background: #383838;
+}

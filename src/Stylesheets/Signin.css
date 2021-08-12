@@ -1,0 +1,17 @@
+.root{
+    -fx-background-color: #282828;
+}
+
+.label{
+    -fx-text-fill: white;
+}
+
+.button{
+    -fx-background-color: #D4286A;
+    -fx-color: #D4286A;
+}
+
+.text-field{
+    -fx-prompt-text-fill: white;
+    -fx-control-inner-background: #383838;
+}
