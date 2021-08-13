@@ -7,6 +7,18 @@
 }
 
 .button{
-    -fx-background-color: #D4286A;
+    -fx-body-color: #D4286A;
+    -fx-focus-color: white;
     -fx-color: #D4286A;
 }
+
+#choiceBox .label{
+    -fx-text-fill: #282828;
+
+}
+#choiceBox {
+    -fx-focus-color: #D4286A;
+    -fx-selection-bar:#D4286A;
+}
+
+

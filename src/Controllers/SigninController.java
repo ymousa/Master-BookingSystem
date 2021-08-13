@@ -27,7 +27,7 @@ public class SigninController {
     @FXML
     private PasswordField newpass;
 
-    public void switchScene(ActionEvent event, String fxml, String css) throws IOException {
+    private void switchScene(ActionEvent event, String fxml, String css) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
@@ -38,14 +38,14 @@ public class SigninController {
     }
 
     @FXML
-    void SignInClick(ActionEvent event) throws IOException {
+    private void SignInClick(ActionEvent event) throws IOException {
         UserHelper myUserHelper= new UserHelper();
         myUserHelper.register(String.format("%C.%s", vorname.getText().charAt(0),nachname.getText()), username.getText(), newpass.getText());
         switchScene(event, "../FXML/Login.fxml","Stylesheets/Login.css");
     }
 
     @FXML
-    void goBack(ActionEvent event) throws IOException {
+    private void goBack(ActionEvent event) throws IOException {
         switchScene(event, "../FXML/Login.fxml","Stylesheets/Login.css");
     }
 

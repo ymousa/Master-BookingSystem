@@ -28,6 +28,7 @@ public class MainController {
 
     }
 
+
     public static MainController getInstance() throws IOException {
         if(ctrl == null){
             return ctrl= new MainController();
@@ -38,6 +39,12 @@ public class MainController {
 
     public ArrayList<Booking> getLsBookings() {
         return lsBookings;
+    }
+
+    private void numberLsBoooking(){
+        for(int i=0; i<lsBookings.size(); i++){
+            lsBookings.get(i).setiBookingNr(i+1);
+        }
     }
 
     public HashMap<String, User> getHmUsers() {
@@ -76,8 +83,9 @@ public class MainController {
         lsBookings.add(newBooking);
     }
 
-    public void removeBooking(){
-
+    public void removeBooking(Booking selectedBooking){
+        lsBookings.remove(selectedBooking);
+        numberLsBoooking();
     }
 
 

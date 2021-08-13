@@ -36,6 +36,18 @@ public class Booking {
     }
 
 
+    @Override
+    public String toString() {
+        return "Nr: " + iBookingNr +
+                ", Name: " + sUser +
+                ", RaumNr: " + sRoomNr +
+                ", Datum: " + lBookingDateAndTime +
+                ", Veran.: " + sBookingName +
+                ", Dauer: " + iDuration +
+                ", Notizen: " + sNots;
+    }
+
+
     public LocalDateTime StringToLocalDateTime(LocalDate lDate, String sTime) {                                 //convert tow Strings into Date and Time localDateTime
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         String sDateTime = lDate.toString() + "T" + sTime;
@@ -48,7 +60,6 @@ public class Booking {
         LocalDateTime parsedDateTime = LocalDateTime.parse(sDateAndTime, formatter);
         return parsedDateTime;
     }
-
 
     public int getiBookingNr() {
         return iBookingNr;

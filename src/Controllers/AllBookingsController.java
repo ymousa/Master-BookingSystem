@@ -34,7 +34,7 @@ public class AllBookingsController {
     private TextArea notizen;
 
 
-    public void switchScene(ActionEvent event, String fxml, String css) throws IOException {
+    private void switchScene(ActionEvent event, String fxml, String css) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
@@ -46,26 +46,27 @@ public class AllBookingsController {
 
 
     @FXML
-    void updateResClicked(ActionEvent event) throws IOException {
+    private void updateResClicked(ActionEvent event) throws IOException {
         TextArea[] allTextAreas= new TextArea[]{nr, name, datum, veranstaltung, dauer, notizen};           //wrap all TextAreas to an Array
         BookingHelper myBookingHelper= new BookingHelper();
 
         myBookingHelper.showBookings(allTextAreas);
     }
 
+
     @FXML
-    void bookMenuClicked(ActionEvent event) throws IOException {
+    private void bookMenuClicked(ActionEvent event) throws IOException {
         switchScene(event, "../FXML/Book.fxml","Stylesheets/Book.css"  );
     }
 
     @FXML
-    void cancelMenuClicked(ActionEvent event) throws IOException{
+    private void cancelMenuClicked(ActionEvent event) throws IOException{
         switchScene(event, "../FXML/CancelBooking.fxml","Stylesheets/CancelBooking.css"  );
     }
 
     @FXML
-    void logoutClicked(ActionEvent event) throws IOException{
-        switchScene(event, "../FXML/Signin.fxml","Stylesheets/Signin.css"  );
+    private void logoutClicked(ActionEvent event) throws IOException{
+        switchScene(event, "../FXML/Login.fxml","Stylesheets/Login.css"  );
     }
 
 

@@ -30,7 +30,7 @@ public class LoginController {
     @FXML
     private Button logInButton;
 
-    public void switchScene(ActionEvent event, String fxml, String css) throws IOException {
+    private void switchScene(ActionEvent event, String fxml, String css) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
@@ -43,7 +43,7 @@ public class LoginController {
 
 
     @FXML
-    void LogInClick(ActionEvent event) throws IOException {
+    private void LogInClick(ActionEvent event) throws IOException {
         UserHelper myUserHelper= new UserHelper();
         if(myUserHelper.verify(username.getText(), password.getText())){
             loginMessage.setText("Success!");
@@ -54,7 +54,7 @@ public class LoginController {
     }
 
     @FXML
-    void goToSignIn(ActionEvent event) throws IOException {
+    private void goToSignIn(ActionEvent event) throws IOException {
         switchScene(event, "../FXML/Signin.fxml","Stylesheets/Signin.css"  );
     }
 

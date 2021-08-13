@@ -7,16 +7,19 @@
 }
 
 .button{
-    -fx-background-color: #D4286A;
+    -fx-body-color: #D4286A;
+    -fx-focus-color: white;
     -fx-color: #D4286A;
 }
 
 #username{
     -fx-prompt-text-fill: white;
+    -fx-focus-color: #D4286A;
     -fx-control-inner-background: #383838;
 }
 
 #password{
     -fx-prompt-text-fill: white;
+    -fx-focus-color: #D4286A;
     -fx-control-inner-background: #383838;
 }
