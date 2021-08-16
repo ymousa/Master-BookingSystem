@@ -114,4 +114,7 @@
          </children>
       </HBox>
    </center>
+   <top>
+      <Label fx:id="bookMessage" BorderPane.alignment="CENTER" />
+   </top>
 </BorderPane>

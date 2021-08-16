@@ -9,12 +9,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class BookController {
+
+    @FXML
+    private Label bookMessage;
 
     @FXML
     private TextField raumNr;
@@ -58,8 +62,13 @@ public class BookController {
         BookingHelper myBookingHelper= new BookingHelper();
         Booking newBooking= new Booking("000","temp",raumNr.getText(), datum.getValue(),
                         veranstaltung.getText(), uhrzeit.getText(), dauer.getText(), notizen.getText());
-        myBookingHelper.insertBooking(newBooking);                                                         //newBooking is not completely
-        clearAllTextField();
+        if(myBookingHelper.checkOver(newBooking)){
+            myBookingHelper.insertBooking(newBooking);                                                         //newBooking is not completely
+            clearAllTextField();
+            bookMessage.setText("Die Buchung wurde hinzugefügt");
+        }else{
+            bookMessage.setText("Dieses Datum ist bereits verlegt worden. Bitte ändern");
+        }
     }
 
     @FXML

@@ -5,8 +5,10 @@ import Datenobjekte.User;
 import javafx.scene.control.TextArea;
 
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class BookingHelper {
 
@@ -56,5 +58,19 @@ public class BookingHelper {
         selectedBooking.setsUser(ctrl.getLoggedUser().getsName());
 
         ctrl.addNewBooking(selectedBooking);                                         //selectedBooking is completely
+    }
+
+    public boolean checkOver(Booking newBooking) throws IOException {
+        MainController ctrl= MainController.getInstance();
+
+        LocalDateTime requiredDate= newBooking.getlBookingDateAndTime();
+        for(Booking booking: ctrl.getLsBookings()){
+            LocalDateTime checkIn= booking.getlBookingDateAndTime();
+            LocalDateTime checkOut= booking.getlBookingDateAndTime().plusHours(booking.getiDuration());
+            if(requiredDate.compareTo(checkIn) >= 0 && requiredDate.compareTo(checkOut) <= 0){
+                return false; //not available
+            }
+        }
+        return true;    //available
     }
 }
