@@ -19,10 +19,11 @@ public class MainController {
     private HashMap<String, User> hmUsers;
     private ArrayList<Booking> lsBookings;
     private User loggedUser;
+    private FileHelper myFileHelper;
 
     public MainController() throws IOException {
         ctrl=this;
-        FileHelper myFileHelper= new FileHelper();
+        myFileHelper= new FileHelper();
         hmUsers= myFileHelper.readUsers();
         lsBookings= myFileHelper.readBookings();
 
@@ -35,6 +36,10 @@ public class MainController {
         }else{
             return ctrl;
         }
+    }
+
+    public FileHelper getMyFileHelper(){
+        return myFileHelper;
     }
 
     public ArrayList<Booking> getLsBookings() {

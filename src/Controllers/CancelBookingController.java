@@ -3,6 +3,7 @@ package Controllers;
 import Datenobjekte.Booking;
 import Helpers.BookingHelper;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +25,6 @@ public class CancelBookingController implements Initializable {
 
     @FXML
     private Label selectedBooking;
-
 
     private void switchScene(ActionEvent event, String fxml, String css) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
@@ -60,7 +60,6 @@ public class CancelBookingController implements Initializable {
 
         selectedBooking.setText("Die Reservierung wurde erfolgreich storniert!");
     }
-
 
     @FXML
     private void allBookingsClicked(ActionEvent event) throws IOException {

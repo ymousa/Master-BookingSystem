@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        MainController myCtrl= MainController.getInstance();
+        MainController ctrl= MainController.getInstance();
 
         Parent root = FXMLLoader.load(getClass().getResource("FXML/Login.fxml"));
         primaryStage.setTitle("Reservierungssytem");
@@ -18,7 +18,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);
