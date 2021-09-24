@@ -19,13 +19,17 @@ public class MainController {
     private HashMap<String, User> hmUsers;
     private ArrayList<Booking> lsBookings;
     private User loggedUser;
-    private FileHelper myFileHelper;
+    //private FileHelper myFileHelper;
+    private DatabaseHelper myDatabaseHelper;
 
     public MainController() throws IOException {
         ctrl=this;
-        myFileHelper= new FileHelper();
-        hmUsers= myFileHelper.readUsers();
-        lsBookings= myFileHelper.readBookings();
+        myDatabaseHelper= new DatabaseHelper();
+        hmUsers= myDatabaseHelper.readUsers();
+        lsBookings= myDatabaseHelper.readBookings();
+        //myFileHelper= new FileHelper();
+        //hmUsers= myFileHelper.readUsers();
+        //lsBookings= myFileHelper.readBookings();
 
     }
 
@@ -38,8 +42,12 @@ public class MainController {
         }
     }
 
-    public FileHelper getMyFileHelper(){
+    /*public FileHelper getMyFileHelper(){
         return myFileHelper;
+    }*/
+
+    public DatabaseHelper getMyDatabaseHelper() {
+        return myDatabaseHelper;
     }
 
     public ArrayList<Booking> getLsBookings() {
@@ -74,8 +82,9 @@ public class MainController {
         window.show();
     }
 
-    public void addNewUser(String name, String username, String pass){
-        hmUsers.put(username, new User(name, username, pass));
+    public void addNewUser(User newUser){
+        hmUsers.put(newUser.getsUsername(), newUser);
+        ctrl.getMyDatabaseHelper().writeUser(newUser);
     }
 
     public int getNrOfLastBooking(){
@@ -85,12 +94,14 @@ public class MainController {
     }
 
     public void addNewBooking(Booking newBooking){
+        ctrl.getMyDatabaseHelper().writeBooking(newBooking);
         lsBookings.add(newBooking);
     }
 
     public void removeBooking(Booking selectedBooking){
+        ctrl.getMyDatabaseHelper().deleteBookingFromSQL(selectedBooking);
         lsBookings.remove(selectedBooking);
-        numberLsBoooking();
+        //numberLsBoooking();
     }
 
 

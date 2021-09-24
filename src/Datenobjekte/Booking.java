@@ -1,7 +1,10 @@
 package Datenobjekte;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Booking {
@@ -13,7 +16,7 @@ public class Booking {
     private int iDuration;
     private String sNots;
 
-    public Booking(String sBookingNr, String sUser, String sRoomNr, LocalDate lBookingDate,                        //for adding a Booking from book Tool to list lsBookings
+    public Booking(String sBookingNr, String sUser, String sRoomNr, LocalDate lBookingDate,                   //for adding a Booking from book Tool to list lsBookings
                    String sBookingName, String sBookingTime, String sDuration, String sNots){
         this.iBookingNr= Integer.parseInt(sBookingNr);
         this.sUser = sUser;
@@ -24,7 +27,7 @@ public class Booking {
         this.sNots= sNots;
     }
 
-    public Booking(String sBookingNr, String sUser, String sRoomNr, String sDateAndTime,                            //for reading the .txt and saving it in list lsBookings
+    public Booking(String sBookingNr, String sUser, String sRoomNr, String sDateAndTime,                      //for reading the .txt and saving it in list lsBookings
                    String sBookingName, String sDuration, String sNots){
         this.iBookingNr= Integer.parseInt(sBookingNr);
         this.sUser = sUser;
@@ -35,6 +38,16 @@ public class Booking {
         this.sNots= sNots;
     }
 
+    public Booking(int iBookingNr, String sUser, int iRoomNr, LocalDate lBookingDate,                        //SQL: for reading the "Database" and saving it in list lsBookings
+                   String sBookingName, LocalTime tBookingTime, int iDuration, String sNots){
+        this.iBookingNr= iBookingNr;
+        this.sUser = sUser;
+        this.sRoomNr= String.valueOf(iRoomNr);
+        this.lBookingDateAndTime= StringToLocalDateTime(lBookingDate,String.valueOf(tBookingTime));
+        this.sBookingName= sBookingName;
+        this.iDuration= iDuration;
+        this.sNots= sNots;
+    }
 
     @Override
     public String toString() {
@@ -60,6 +73,19 @@ public class Booking {
         LocalDateTime parsedDateTime = LocalDateTime.parse(sDateAndTime, formatter);
         return parsedDateTime;
     }
+
+    public Date localDateTimeToDate(LocalDateTime lcd){
+        LocalDate lcDate= lcd.toLocalDate();
+        Date date= Date.valueOf(lcDate);
+        return date;
+    }           //For SQL
+
+    public Time localDateTimeToTime(LocalDateTime lcd){
+        LocalTime lcTime= lcd.toLocalTime();
+        Time time= Time.valueOf(lcTime);
+        return time;
+    }           //For SQL
+
 
     public int getiBookingNr() {
         return iBookingNr;

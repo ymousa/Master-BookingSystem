@@ -21,8 +21,8 @@ public class UserHelper{
         return false;
     }
 
-    public void register(String name, String username, String pass ) throws IOException {
+    public void register(User newUser) throws IOException {
         MainController ctrl= MainController.getInstance();
-        ctrl.addNewUser(name,username,pass);
+        ctrl.addNewUser(newUser);
     }
 }

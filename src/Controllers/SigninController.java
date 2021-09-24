@@ -1,5 +1,6 @@
 package Controllers;
 
+import Datenobjekte.User;
 import Helpers.UserHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +41,8 @@ public class SigninController {
     @FXML
     private void SignInClick(ActionEvent event) throws IOException {
         UserHelper myUserHelper= new UserHelper();
-        myUserHelper.register(String.format("%C.%s", vorname.getText().charAt(0),nachname.getText()), username.getText(), newpass.getText());
+        User newUser= new User(vorname.getText(), nachname.getText(), username.getText(), newpass.getText());
+        myUserHelper.register(newUser);
         switchScene(event, "../FXML/Login.fxml","Stylesheets/Login.css");
     }
 

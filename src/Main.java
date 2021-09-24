@@ -41,8 +41,8 @@ public class Main extends Application {
             System.out.println("You successfully logged out!");
             MainController ctrl= MainController.getInstance();
 
-            ctrl.getMyFileHelper().writeUsers(ctrl.getHmUsers());
-            ctrl.getMyFileHelper().writeBookings(ctrl.getLsBookings());
+            //ctrl.getMyFileHelper().writeUsers(ctrl.getHmUsers());         //was for saving allUsers in txt  after closing
+            //ctrl.getMyFileHelper().writeBookings(ctrl.getLsBookings());   //was for saving allBookings in txt  after closing
 
             stage.close();
         }

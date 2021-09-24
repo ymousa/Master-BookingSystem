@@ -1,19 +1,24 @@
 package Datenobjekte;
 
 public class User {
-    private String sName;
+    private String sFirstName;
+    private String sLastName;
     private String sUsername;
     private String sPass;
 
-    public User(String name, String username, String pass){
-        sName= name;
+    public User(String firstName, String lastName, String username, String pass){
+        sFirstName= firstName;
+        sLastName= lastName;
         sUsername= username;
         sPass= pass;
     }
 
 
-    public String getsName() {
-        return sName;
+    public String getsFirstName() {
+        return sFirstName;
+    }
+    public String getsLastName() {
+        return sLastName;
     }
     public String getsPass() {
         return sPass;

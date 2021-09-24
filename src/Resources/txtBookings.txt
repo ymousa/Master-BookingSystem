@@ -1,11 +1,4 @@
-1;T.Grebe;200;2021-09-12T14:00;VW-Meeting;3;Beamer und 4Tische
-2;P.Damm;124;2021-09-20T12:00;Beratung;2;2 Tische
-3;L.Holbein;200;2021-09-22T09:00;Beschprechung;1;Beamer
-4;T.Grebe;54;2021-09-27T13:00;Planung;3;4 Laptops
-5;O.Crönertz;1;2021-09-29T10:10;Notenverteilung;1;20TIB
-6;T.Grebe;200;2021-09-12T14:00;VW-Meeting;3;Beamer und 4Tische
-7;Y.Mousa;114;2021-09-18T10:00;Besprechung;1;keine
-8;P.Damm;124;2021-09-20T12:00;Beratung;2;2 Tische
-9;L.Holbein;200;2021-09-22T09:00;Beschprechung;1;Beamer
-10;T.Grebe;54;2021-09-27T13:00;Planung;3;4 Laptops
-11;O.Crönertz;1;2021-09-29T10:10;Notenverteilung;1;20TIB
+1;p.damm;50;2021-09-20T13:00;Meeting;2;keine
+2;y.mousa;150;2021-10-03T22:00;d;3;d
+3;y.mousa;200;2021-09-28T11:00;keine;4;keine
+4;f.holstein;100;2021-10-03T16:00;Einführung;3;keine

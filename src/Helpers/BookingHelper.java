@@ -36,7 +36,7 @@ public class BookingHelper {
         MainController ctrl= MainController.getInstance();
 
         for (Booking booking : ctrl.getLsBookings()) {
-            if (booking.getsUser().equals(ctrl.getLoggedUser().getsName())) {               //search for LoggedUser --> Bookings
+            if (booking.getsUser().equals(ctrl.getLoggedUser().getsUsername())) {               //search for LoggedUser --> Bookings
                 lsMyBooking.add(booking);
             }
         }
@@ -53,9 +53,10 @@ public class BookingHelper {
         MainController ctrl= MainController.getInstance();
 
         selectedBooking.setiBookingNr(ctrl.getNrOfLastBooking()+1);
-        selectedBooking.setsUser(ctrl.getLoggedUser().getsName());
+        selectedBooking.setsUser(ctrl.getLoggedUser().getsUsername());
 
         ctrl.addNewBooking(selectedBooking);                                         //selectedBooking is completely
+
     }
 
     public boolean checkOver(Booking newBooking) throws IOException {

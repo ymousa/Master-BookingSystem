@@ -18,7 +18,7 @@ public class FileHelper {
         String sLine = null;
         while ((sLine = br.readLine()) != null) {                                               //reading data from txtUsers and save it in HashMap hmUsers
             String[] sUserData = sLine.split(";");
-            allUsers.put(sUserData[1], new User(sUserData[0], sUserData[1], sUserData[2]));
+            allUsers.put(sUserData[2], new User(sUserData[0], sUserData[1], sUserData[2], sUserData[3]));
         }
         br.close();
         br.close();
@@ -48,7 +48,7 @@ public class FileHelper {
         bw = new BufferedWriter(fw);
         String sep = ";";
         for (String key : allUsers.keySet()) {
-            String outPutText = allUsers.get(key).getsName() + sep + allUsers.get(key).getsUsername() +
+            String outPutText = allUsers.get(key).getsFirstName()+ sep + allUsers.get(key).getsLastName() + sep + allUsers.get(key).getsUsername() +
                     sep + allUsers.get(key).getsPass();
             bw.write(outPutText);
             bw.write("\n");
